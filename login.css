@@ -1,0 +1,84 @@
+/* Página de login — Marcenaria Piata Norte (versão somente para computador) */
+:root {
+  --vermelho: #ad1f23;
+  --tinta: #111111;
+  --fundo-claro: #f4f6f9;
+  --branco: #ffffff;
+  --linha: #dbdbdb;
+  --texto-suave: #545454;
+  --placeholder: #8c8c8c;
+  --fonte-titulo: "Manrope", system-ui, sans-serif;
+  --fonte-texto: "Inter", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body#pagina-login {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 600px minmax(0, 1fr);
+  font-family: var(--fonte-texto);
+  font-size: 16px;
+  color: var(--tinta);
+  background: var(--fundo-claro);
+  -webkit-font-smoothing: antialiased;
+}
+#pagina-login h1, #pagina-login p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+#pagina-login :focus-visible { outline: 3px solid var(--vermelho); outline-offset: 3px; }
+
+/* Imagem à esquerda: ocupa toda a altura e a largura do antigo painel preto. */
+#painel-imagem { min-width: 0; min-height: 100vh; overflow: hidden; background: #141414; }
+#imagem-login { display: block; width: 100%; height: 100vh; object-fit: cover; }
+
+/* Botão principal */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  font-family: var(--fonte-texto);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color .15s ease, color .15s ease;
+}
+.botao-grande { padding: 15px 26px; font-size: 15px; }
+.botao-largura-total { width: 100%; }
+.botao-vermelho { background: var(--vermelho); color: var(--branco); }
+.botao-vermelho:hover { background: #8f1519; }
+
+/* Área do formulário à direita */
+#area-formulario { display: flex; align-items: center; justify-content: center; padding: 40px; background: var(--fundo-claro); }
+#caixa-formulario { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 24px; }
+#link-voltar-site { font-size: 14px; font-weight: 600; align-self: flex-start; }
+#link-voltar-site:hover { text-decoration: underline; }
+#titulo-formulario { display: flex; flex-direction: column; gap: 6px; }
+#titulo-formulario h1 { font-family: var(--fonte-titulo); font-weight: 700; font-size: 34px; line-height: 1.12; }
+#titulo-formulario p { font-size: 15px; color: var(--texto-suave); }
+
+/* Formulário de login */
+#formulario-login { display: flex; flex-direction: column; gap: 20px; }
+.campo { display: flex; flex-direction: column; gap: 6px; }
+.campo-rotulo { font-size: 13px; font-weight: 600; }
+.campo-rotulo-linha { display: flex; align-items: center; justify-content: space-between; }
+.link-esqueci-senha { font-size: 13px; font-weight: 600; color: var(--vermelho); text-decoration: underline; }
+.campo-entrada {
+  width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--linha);
+  background: var(--branco); font-family: var(--fonte-texto); font-size: 14px; color: var(--tinta);
+}
+.campo-entrada::placeholder { color: var(--placeholder); }
+.campo-com-botao { position: relative; }
+.campo-com-botao .campo-entrada { padding-right: 84px; }
+.botao-mostrar-senha {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  padding: 6px 10px; border: 0; border-radius: 8px; background: transparent;
+  font-family: var(--fonte-texto); font-size: 12px; font-weight: 600; color: var(--texto-suave); cursor: pointer;
+}
+.botao-mostrar-senha:hover { color: var(--tinta); }
+#chamada-cadastro { text-align: center; font-size: 14px; color: var(--texto-suave); }
+#chamada-cadastro a { font-weight: 600; color: var(--vermelho); text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) { .botao { transition: none; } }
